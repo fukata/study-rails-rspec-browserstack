@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<%= render partial: 'common/model_error', locals: {model: @user} %>
+
+<%= form_for @user, url: login_path, method: :post do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <%= f.submit 'Login' %>
+<% end %>
+
+<%= link_to 'SignUp', new_user_path %>

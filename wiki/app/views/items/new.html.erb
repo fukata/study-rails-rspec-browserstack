@@ -1,0 +1,16 @@
+<h1>Add Item</h1>
+
+<%= render partial: 'common/model_error', locals: {model: @item} %>
+
+<%= form_for @item, method: :post do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div>
+    <%= f.text_field :title, placeholder: 'Title' %>
+  </div>
+  <div>
+    <%= f.text_area :content, placeholder: 'Content', cols: 100, rows: 10 %>
+  </div>
+  <div>
+    <%= f.submit 'Submit' %>
+  </div>
+<% end %>

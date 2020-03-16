@@ -1,0 +1,22 @@
+<h1>Items</h1>
+
+<% if @items.length > 0 %>
+  <table id="items" class="table">
+    <thead>
+      <th>ID</th>
+      <th>TITLE</th>
+    </thead>
+    <tbody>
+    <% @items.each do |item| %>
+      <tr class="item">
+        <td class="id"><%= item.id %></td>
+        <td class="title"><%= item.title %></td>
+      <tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div id="notfound-item">
+    <p>Not found items</p>
+  </div>
+<% end %>
