@@ -33,7 +33,17 @@ $ docker-compose up -d
 
 ## 設定
 
-`wiki/spec/support/e2e.rb` を参照
+使用可能な環境変数一覧
+
+- TEST_BROWSER: テストするブラウザ名(browserstack,headless_chrome)
+- BROWSERSTACK_CONFIG_NAME: BrowserStack用の設定ファイル名 (パス: config/${name}.config.yml)
+- BROWSERSTACK_USERNAME: BrowserStack用のユーザー名 (管理画面から取得可能)
+- BROWSERSTACK_ACCESS_KEY: BrowserStack用のアクセスキー (管理画面から取得可能)
+- BROWSERSTACK_NAME: テスト名
+- BROWSERSTACK_BROWSER_ID: 設定ファイル内のbrowser_capsのインデックス
+
+詳細は `wiki/spec/support/e2e.rb` を参照
+
 
 ## 実行方法
 
