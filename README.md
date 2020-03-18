@@ -1,6 +1,6 @@
 # Rails 5.2.4 + RSpec 3.9 + System Spec + BrowserStack
 
-※ 学習用
+**※ 学習用**
 
 ## これは何？
 
