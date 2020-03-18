@@ -18,6 +18,10 @@ BrowserStackを使ってSystem Specを実行したい。
 - BrowserStackの動画がテスト全体になってしまう。
   - コケたテストの動画が見やすいように各example毎に動画にしたい。
 
+## サンプル動画
+
+- [IE11(Win10) on BrowserStack](https://github.com/fukata/study-rails-rspec-browserstack/raw/master/assets/video-1c337e929893ab972fa5a43743f2fb3caeb8c978.mp4)
+
 ## 環境構築
 
 事前にBrowserStackのユーザー登録を行い、ユーザー名とアクセスキーの取得が必要。
