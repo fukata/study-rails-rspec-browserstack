@@ -4,11 +4,13 @@ volumes:
     driver: local
 services:
   app:
-    image: fukata/rails:ruby2.6
+    image: fukata/rails:ruby2.6-tini
     command: bash -c "rm -f /app/tmp/pids/app.pid && bundle install --jobs=4 --retry=3 && bundle exec rails server -p 3000 -b 0.0.0.0 --pid /app/tmp/pids/app.pid"
     environment:
       TZ: "/usr/share/zoneinfo/Etc/UTC"
       BUNDLE_PATH: /app/vendor/bundle/
+      TEST_BROWSER: '' # browserstack (default: headless_chrome)
+      BROWSERSTACK_BROWSER_ID: 1 # IE11
     ports:
       - "3000:3000"
     volumes:

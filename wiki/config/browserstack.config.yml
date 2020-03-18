@@ -1,0 +1,17 @@
+server: "hub-cloud.browserstack.com"
+user: "YOUR USERNAME"
+key: "YOUR ACCESS KEY"
+
+common_caps:
+  "browserstack.local": true
+  "name": "Bstack-[Rspec] Sample Test"
+
+browser_caps:
+  -
+    "browser": "chrome"
+  -
+    "os": "Windows"
+    "os_version": "10"
+    "browser": "IE"
+    "browser_version": "11.0"
+    "resolution": "1024x768"
