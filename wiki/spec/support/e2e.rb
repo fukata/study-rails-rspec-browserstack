@@ -66,6 +66,30 @@ when 'browserstack'
     end
   end
 
+when 'selenium-grid'
+  Rails.logger.info("Use Selenium Grid")
+
+  # monkey patch to avoid reset sessions
+  class Capybara::Selenium::Driver < Capybara::Driver::Base
+    def reset!
+      if @browser
+        @browser.navigate.to('about:blank')
+      end
+    end
+  end
+
+  RSpec.configure do |config|
+    caps = Selenium::WebDriver::Remote::Capabilities.internet_explorer(javascript_enabled: true)
+    config.before(:example, type: :system) do |example|
+      driven_by :selenium, using: :remote, options: {
+        url: "http://#{ENV['SELENIUM_HUB_HOST']}:#{ENV['SELENIUM_HUB_PORT']}/wd/hub",
+        desired_capabilities: caps
+      }
+      Capybara.server_host = '0.0.0.0'
+      Capybara.server_port = ENV.fetch('TEST_APP_PORT', '33333')
+      Capybara.app_host = "http://localhost:#{Capybara.server_port}"
+    end
+  end
 else
   Rails.logger.info("Use Headless Chrome")
 

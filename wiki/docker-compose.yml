@@ -9,10 +9,14 @@ services:
     environment:
       TZ: "/usr/share/zoneinfo/Etc/UTC"
       BUNDLE_PATH: /app/vendor/bundle/
-      TEST_BROWSER: '' # browserstack (default: headless_chrome)
+      TEST_BROWSER: '' # browserstack, selenium-grid (default: headless_chrome)
       BROWSERSTACK_BROWSER_ID: 1 # IE11
+      SELENIUM_HUB_HOST: Selenium Hubのホスト
+      SELENIUM_HUB_PORT: 4444
+      TEST_APP_PORT: 33333 # 下のseleium-grid用のポートと同じにする
     ports:
       - "3000:3000"
+      - "33333:33333" # selenium-grid用
     volumes:
       - .:/app
       - app_bundle_data:/app/vendor/bundle
